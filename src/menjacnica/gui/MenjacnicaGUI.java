@@ -94,7 +94,7 @@ public class MenjacnicaGUI extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenjacnicaGUI.class.getResource("/resources/Penguins.jpg")));
 		setTitle("Menjacnica");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 552, 361);
 		setJMenuBar(getMenuBar_1());
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -103,6 +103,7 @@ public class MenjacnicaGUI extends JFrame {
 		contentPane.add(getScrollPane(), BorderLayout.CENTER);
 		contentPane.add(getPanel(), BorderLayout.SOUTH);
 		contentPane.add(getPanel_1(), BorderLayout.EAST);
+		setLocationRelativeTo(null);
 	}
 
 	private JScrollPane getScrollPane() {
@@ -189,6 +190,11 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmIzvrsiZamenu() {
 		if (mntmIzvrsiZamenu == null) {
 			mntmIzvrsiZamenu = new JMenuItem("Izvrsi zamenu");
+			mntmIzvrsiZamenu.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					izvrsiZamenu();
+				}
+			});
 		}
 		return mntmIzvrsiZamenu;
 	}
@@ -251,6 +257,11 @@ public class MenjacnicaGUI extends JFrame {
 	private JButton getBtnIzvrsiZamenu() {
 		if (btnIzvrsiZamenu == null) {
 			btnIzvrsiZamenu = new JButton("Izvrsi zamenu");
+			btnIzvrsiZamenu.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					izvrsiZamenu();
+				}
+			});
 		}
 		return btnIzvrsiZamenu;
 	}
@@ -284,7 +295,7 @@ public class MenjacnicaGUI extends JFrame {
 			mntmAbout.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					JOptionPane.showMessageDialog(contentPane,
-							"Ivan Rakic", "Informacije o autoru", JOptionPane.INFORMATION_MESSAGE);
+							"Ivan Rakic, verzija 1.0", "Informacije o autoru", JOptionPane.INFORMATION_MESSAGE);
 				}
 			});
 		}
@@ -360,6 +371,11 @@ public class MenjacnicaGUI extends JFrame {
 	
 	public void obrisiKurs() {
 		ObrisiKursGUI prozor = new ObrisiKursGUI(this);
+		prozor.setVisible(true);
+	}
+	
+	public void izvrsiZamenu() {
+		IzvrsiZamenuGUI prozor = new IzvrsiZamenuGUI(this);
 		prozor.setVisible(true);
 	}
 }

@@ -71,7 +71,7 @@ public class ObrisiKursGUI extends JFrame {
 		contentPane.add(getChckbxZaistaObrisiKurs());
 		contentPane.add(getBtnObrisi());
 		contentPane.add(getBtnOdustani());
-		
+		setLocationRelativeTo(glavniProzor);
 		this.glavniProzor = glavniProzor;
 	}
 

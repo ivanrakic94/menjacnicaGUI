@@ -61,7 +61,7 @@ public class DodajKursGUI extends JFrame {
 		contentPane.add(getTextField_5());
 		contentPane.add(getBtnDodaj());
 		contentPane.add(getBtnOdustani());
-		
+		setLocationRelativeTo(glavniProzor);
 		this.glavniProzor = glavniProzor;
 	}
 	private JLabel getLblSifra() {
