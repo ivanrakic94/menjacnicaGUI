@@ -32,6 +32,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
+import sun.misc.Contended;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
 import java.awt.event.ActionListener;
@@ -165,6 +167,11 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmDodajKurs() {
 		if (mntmDodajKurs == null) {
 			mntmDodajKurs = new JMenuItem("Dodaj kurs");
+			mntmDodajKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					dodajKurs();
+				}
+			});
 		}
 		return mntmDodajKurs;
 	}
@@ -196,7 +203,7 @@ public class MenjacnicaGUI extends JFrame {
 		}
 		return scrollPane_1;
 	}
-	private JTextArea getTextArea() {
+	public JTextArea getTextArea() {
 		if (textArea == null) {
 			textArea = new JTextArea();
 			textArea.setLineWrap(true);
@@ -217,6 +224,11 @@ public class MenjacnicaGUI extends JFrame {
 	private JButton getBtnDodajKurs() {
 		if (btnDodajKurs == null) {
 			btnDodajKurs = new JButton("Dodaj kurs");
+			btnDodajKurs.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					dodajKurs();
+				}
+			});
 		}
 		return btnDodajKurs;
 	}
@@ -328,5 +340,11 @@ public class MenjacnicaGUI extends JFrame {
 		if (opcija == JOptionPane.YES_OPTION) {
 			System.exit(0);
 		}
+	}
+	
+	public void dodajKurs() {
+		DodajKursGUI prozor = new DodajKursGUI(this);
+		prozor.setVisible(true);
+		
 	}
 }
